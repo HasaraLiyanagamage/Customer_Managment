@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to <%= appName %></title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .header {
+      text-align: center;
+      padding: 20px 0;
+      border-bottom: 1px solid #eee;
+      margin-bottom: 20px;
+    }
+    .logo {
+      max-width: 200px;
+      height: auto;
+    }
+    .content {
+      padding: 20px 0;
+    }
+    .button {
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #4CAF50;
+      color: white !important;
+      text-decoration: none;
+      border-radius: 4px;
+      margin: 20px 0;
+    }
+    .credentials {
+      background-color: #f9f9f9;
+      padding: 15px;
+      border-radius: 4px;
+      margin: 15px 0;
+    }
+    .footer {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid #eee;
+      font-size: 12px;
+      color: #777;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Welcome to <%= appName %></h1>
+  </div>
+  
+  <div class="content">
+    <h2>Hello <%= userName %>,</h2>
+    
+    <p>Thank you for joining <%= appName %>! We're excited to have you on board.</p>
+    
+    <% if (typeof tempPassword !== 'undefined' && tempPassword) { %>
+      <div class="credentials">
+        <p>Your account has been created with the following credentials:</p>
+        <p><strong>Email:</strong> <%= userEmail || 'Your registered email' %></p>
+        <p><strong>Temporary Password:</strong> <%= tempPassword %></p>
+        <p>Please change your password after your first login.</p>
+      </div>
+    <% } %>
+    
+    <p>To get started, please log in to your account:</p>
+    
+    <p style="text-align: center;">
+      <a href="<%= loginUrl || (appUrl + '/login') %>" class="button">Log In to Your Account</a>
+    </p>
+    
+    <p>If you have any questions or need assistance, feel free to contact our support team.</p>
+    
+    <p>Best regards,<br>The <%= appName %> Team</p>
+  </div>
+  
+  <div class="footer">
+    <p>© <%= year %> <%= appName %>. All rights reserved.</p>
+    <p>This email was sent to <%= userEmail || 'you' %> because you created an account with <%= appName %>.</p>
+    <p>If you didn't create an account, please contact our support team immediately.</p>
+  </div>
+</body>
+</html>
